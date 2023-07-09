@@ -1,0 +1,66 @@
+# env:
+  # TERM: xterm-256color
+  # WINIT_X11_SCALE_FACTOR: "10"
+# # dpi:
+# #   x: 227.0
+# #   y: 227.0
+# # ...........
+# font:
+#   normal:
+#     family: cozette # should be "Menlo" or something on macOS.
+# ...........
+# size: 10.0
+
+# dpi: 
+#   x: 144.0
+#   y: 144.0
+#
+# font:
+#   offset:
+#     x: 7.0
+#     y: -4.0 
+#
+# font:
+#   normal:
+#     family: cozette
+#     style:  Medium
+#
+#   bold:
+#     family: cozette
+#     style: Bold
+#
+#   italic:
+#     family: cozette
+#     style: Italic
+#   size: 15.0
+font:
+  normal:
+    family: IosevkaTerm Nerd Font Mono
+    style: Regular
+  bold:
+    family: IosevkaTerm Nerd Font Mono
+    style:  Bold
+  italic:
+    family: IosevkaTerm Nerd Font Mono
+    style:  Italic
+  bold_italic:
+    family: IosevkaTerm Nerd Font Mono
+    style: Bold Italic
+  size: 10
+draw_bold_text_with_bright_colors: true
+
+
+import:
+  - ~/.config/alacritty/themes/themes/everforest_dark.yaml
+
+selection:
+  save_to_clipboard: false
+
+shell:
+  program: /usr/bin/zsh
+
+key_bindings:
+  - { key: Key0,           mods: Control,                 action: ResetFontSize    }
+  - { key: Plus,           mods: Control,                 action: IncreaseFontSize }
+  - { key: Minus,          mods: Control,                 action: DecreaseFontSize }
+  - { key: Return, mods: Super|Shift, action: SpawnNewInstance }
