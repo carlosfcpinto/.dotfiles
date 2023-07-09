@@ -140,7 +140,19 @@ require('lazy').setup({
       vim.cmd.colorscheme 'everforest'
     end,
   },
-
+  -- {
+  --   "hardhackerlabs/theme-vim",
+  --   name = "hardhacker",
+  --   lazy = false,
+  --   priority = 1000,
+  --   config = function()
+  --     vim.g.hardhacker_hide_tilde = 1
+  --     vim.g.hardhacker_keyword_italic = 1
+  --     -- custom highlights
+  --     vim.g.hardhacker_custom_highlights = {}
+  --     vim.cmd("colorscheme hardhacker")
+  --   end,
+  -- },
   {
     -- Set lualine as statusline
     'nvim-lualine/lualine.nvim',
@@ -333,6 +345,18 @@ map('n', '<C-j>', '<C-w>j', default_opts)
 map('n', '<C-k>', '<C-w>k', default_opts)
 map('n', '<C-l>', '<C-w>l', default_opts)
 
+-- nvterm shortcuts
+local terminal = require("nvterm.terminal")
+local toggle_modes = { 'n', 't' }
+local mappings = {
+  { toggle_modes, '<A-h>', function() require("nvterm.terminal").toggle('horizontal') end },
+  { toggle_modes, '<A-v>', function() require("nvterm.terminal").toggle('vertical') end },
+  { toggle_modes, '<A-i>', function() require("nvterm.terminal").toggle('float') end },
+}
+local opts = { noremap = true, silent = true }
+for _, mapping in ipairs(mappings) do
+  vim.keymap.set(mapping[1], mapping[2], mapping[3], opts)
+end
 -- [[ Highlight on yank ]]
 -- See `:help vim.highlight.on_yank()`
 local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
